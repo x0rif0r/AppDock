@@ -101,20 +101,6 @@
       "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
-      "id": 6794501026,
-      "name": "Grok Bot",
-      "family": "Grok Bot — связь с xAI не подтверждена",
-      "bundleID": "co.anysphere.sand",
-      "aliases": [],
-      "verification": "metadata_only",
-      "distribution": "unknown",
-      "sources": [
-        "https://apps.apple.com/ru/app/id6794501026"
-      ],
-      "checkedOn": "2026-10-12",
-      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
-    },
-    {
       "id": 6504287215,
       "name": "Happ - Proxy Utility",
       "family": "Happ - Proxy Utility",
@@ -157,6 +143,36 @@
       "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
+      "id": 1348775741,
+      "name": "SmartMed – здоровье пациента",
+      "family": "MEDSI",
+      "bundleID": "ru.mts.smartmed",
+      "aliases": [],
+      "verification": "confirmed",
+      "distribution": "unknown",
+      "sources": [
+        "https://medsi.ru/press-centr/news/chislo-skachivaniy-servisa-medsi-smartmed-prevysilo-1-million/",
+        "https://apps.apple.com/ru/app/id1348775741"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "Связь приложения с MEDSI подтверждена официальным сайтом MEDSI. App Store ID и Bundle ID сверены с метаданными IPA; доступность лицензии проверяется отдельно."
+    },
+    {
+      "id": 6736902949,
+      "name": "StoreMed - Здоровье онлайн",
+      "family": "MEDSI",
+      "bundleID": "com.newmed.startmed",
+      "aliases": [],
+      "verification": "confirmed",
+      "distribution": "unknown",
+      "sources": [
+        "https://www.medsi.ru/lands/medsi-klub.php",
+        "https://apps.apple.com/ru/app/id6736902949"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "Связь приложения с MEDSI подтверждена официальным сайтом MEDSI. App Store ID и Bundle ID сверены с метаданными IPA; доступность лицензии проверяется отдельно."
+    },
+    {
       "id": 1629869891,
       "name": "Ozon Банк",
       "family": "Ozon",
@@ -180,34 +196,6 @@
       "distribution": "unknown",
       "sources": [
         "https://apps.apple.com/ru/app/id407804998"
-      ],
-      "checkedOn": "2026-10-12",
-      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
-    },
-    {
-      "id": 1348775741,
-      "name": "SmartMed – здоровье пациента",
-      "family": "SmartMed",
-      "bundleID": "ru.mts.smartmed",
-      "aliases": [],
-      "verification": "metadata_only",
-      "distribution": "unknown",
-      "sources": [
-        "https://apps.apple.com/ru/app/id1348775741"
-      ],
-      "checkedOn": "2026-10-12",
-      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
-    },
-    {
-      "id": 6736902949,
-      "name": "StoreMed - Здоровье онлайн",
-      "family": "StoreMed — связь с MEDSI не подтверждена",
-      "bundleID": "com.newmed.startmed",
-      "aliases": [],
-      "verification": "metadata_only",
-      "distribution": "unknown",
-      "sources": [
-        "https://apps.apple.com/ru/app/id6736902949"
       ],
       "checkedOn": "2026-10-12",
       "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
@@ -957,20 +945,6 @@
       "notes": "Историческая связь сообщается источником; требуется подтверждение первичным источником. Не считать проверенной лицензией или доказательством подлинности."
     },
     {
-      "id": 6744684419,
-      "name": "Office Capital",
-      "family": "Т-Банк",
-      "bundleID": null,
-      "aliases": [],
-      "verification": "reported",
-      "distribution": "unknown",
-      "sources": [
-        "https://4pda.to/forum/index.php?showtopic=1064562&st=1080"
-      ],
-      "checkedOn": "2026-10-12",
-      "notes": "Историческая связь сообщается источником; требуется подтверждение первичным источником. Не считать проверенной лицензией или доказательством подлинности."
-    },
-    {
       "id": 6748913132,
       "name": "EasyCatch Sounder",
       "family": "Т-Банк",
@@ -1013,11 +987,31 @@
       "notes": "Историческая связь сообщается источником; требуется подтверждение первичным источником. Не считать проверенной лицензией или доказательством подлинности."
     },
     {
+      "id": 6756361699,
+      "name": "Filtercare Techs",
+      "family": "Т-Банк",
+      "bundleID": "com.filtercare.app",
+      "aliases": [
+        "Filter T"
+      ],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/filtercare-techs/id6756361699",
+        "https://apps.apple.com/ru/app/id6756361699"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с сохранёнными метаданными приложения. Наличие на устройстве не подтверждает лицензию текущего Apple ID. Связь с банковским сервисом требует отдельной проверки официальных источников."
+    },
+    {
       "id": 6774629936,
       "name": "Toastmas",
       "family": "Т-Банк",
       "bundleID": "com.toastmaster.app",
-      "aliases": [],
+      "aliases": [
+        "T",
+        "Т"
+      ],
       "verification": "metadata_only",
       "distribution": "unknown",
       "sources": [
@@ -1025,6 +1019,53 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 6744684419,
+      "name": "Office Capital",
+      "family": "Т-Инвестиции",
+      "bundleID": null,
+      "aliases": [],
+      "verification": "reported",
+      "distribution": "unknown",
+      "sources": [
+        "https://4pda.to/forum/index.php?showtopic=1064562&st=1080",
+        "https://frankmedia.ru/207030"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "Историческая связь сообщается источником; требуется подтверждение первичным источником. Не считать проверенной лицензией или доказательством подлинности."
+    },
+    {
+      "id": 6774562548,
+      "name": "EatsRate",
+      "family": "Т-Инвестиции",
+      "bundleID": "com.paata.shihan",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://procash.app/articles/t-investicii-eatsrate-iphone",
+        "https://apps.apple.com/ru/app/id6774562548"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с сохранёнными метаданными приложения. Наличие на устройстве не подтверждает лицензию текущего Apple ID. Связь с банковским сервисом требует отдельной проверки официальных источников."
+    },
+    {
+      "id": 6799090729,
+      "name": "FuelInTime",
+      "family": "Т-Инвестиции",
+      "bundleID": "com.ivars.fueltime",
+      "aliases": [
+        "FuellnTime"
+      ],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://www.tbank.ru/invest/social/profile/Beta_Testing_Invest/a24212a4-db32-402d-9a05-8a88a62a9255/",
+        "https://apps.apple.com/ru/app/id6799090729"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с сохранёнными метаданными приложения. Наличие на устройстве не подтверждает лицензию текущего Apple ID. Связь с банковским сервисом требует отдельной проверки официальных источников."
     },
     {
       "id": 387272416,

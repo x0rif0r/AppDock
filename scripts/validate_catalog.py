@@ -17,3 +17,15 @@ for app in data['apps']:
     assert app['sources'] and all(urllib.parse.urlsplit(s).scheme=='https' and urllib.parse.urlsplit(s).hostname and not urllib.parse.urlsplit(s).username for s in app['sources'])
     assert set(app)<={'id','name','family','bundleID','aliases','verification','distribution','sources','checkedOn','notes','firstPublished','removedOn'},'Unsupported/private field'
 print(f'Catalog valid: {len(seen)} unique app IDs. Authenticity is not automatically verified.')
+
+unresolved=json.loads((root/'catalog/unresolved.json').read_text())
+assert unresolved['schemaVersion']==1
+datetime.date.fromisoformat(unresolved['updatedOn'])
+bundles=set()
+for app in unresolved['apps']:
+    assert app['appStoreID'] is None, 'Unresolved identifiers must never trigger downloads'
+    assert app['bundleID'] not in bundles and '.' in app['bundleID']
+    bundles.add(app['bundleID'])
+    assert set(app)<={'name','storeName','bundleID','family','appStoreID','candidateAppStoreID','notes','sources'},'Unsupported/private unresolved field'
+    if 'candidateAppStoreID' in app: assert type(app['candidateAppStoreID']) is int and app['candidateAppStoreID']>0
+print(f'Unresolved catalog valid: {len(bundles)} bundles; no download IDs assigned.')

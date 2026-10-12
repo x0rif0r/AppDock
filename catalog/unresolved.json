@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "updatedOn": "2026-10-12",
+  "apps": [
+    {
+      "name": "YellowT",
+      "storeName": "YellowVendoTen",
+      "bundleID": "com.automart.murranmike",
+      "family": "Т-Банк",
+      "appStoreID": null,
+      "notes": "Название и Bundle ID прочитаны с установленного приложения. Числовой App Store ID в доступных метаданных отсутствует; не заменять ID похожего приложения."
+    },
+    {
+      "name": "Weave",
+      "storeName": "LeatherWeave",
+      "bundleID": "com.cobble.track.work.app",
+      "family": "Т-Банк",
+      "appStoreID": null,
+      "notes": "Название и Bundle ID прочитаны с установленного приложения. Связь с Т-Банком указана пользователем; App Store ID не установлен."
+    },
+    {
+      "name": "OfficeCapital",
+      "storeName": "Office-Capital",
+      "bundleID": "com.dreamgoods.officecapital",
+      "family": "Т-Инвестиции",
+      "candidateAppStoreID": 6744684419,
+      "appStoreID": null,
+      "notes": "Публичная ссылка для Office-Capital содержит ID 6744684419. В метаданных установленной копии числового ID нет; соответствие этого ID данному Bundle ID ещё нужно проверить.",
+      "sources": [
+        "https://frankmedia.ru/207030"
+      ]
+    }
+  ]
+}

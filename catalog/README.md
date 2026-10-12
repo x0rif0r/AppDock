@@ -1,6 +1,6 @@
 # Справочник приложений
 
-Справочник известных приложений: как доступных, так и исчезнувших из магазина. Это не список покупок и не гарантия загрузки. `reported` — сведения из публикаций; `metadata_only` — сверены идентификаторы IPA, но официальность отдельно не подтверждена; `confirmed` — подтверждено первичным источником. `distribution: unknown` означает, что текущая доступность ещё не проверена. Не все записи являются удалёнными приложениями.
+Известные приложения: доступные и исчезнувшие из магазина. Это не список покупок и не гарантия загрузки. `reported` — сведения из публикаций; `metadata_only` — сверены идентификаторы, но официальность отдельно не подтверждена; `confirmed` — связь с брендом подтверждена первичным источником. `unknown` означает, что текущая доступность ещё не установлена. Не все записи являются удалёнными приложениями.
 
 | Семейство | Название | App Store ID | Bundle ID | Проверка | Доступность | Источник |
 |---|---|---:|---|---|---|---|
@@ -11,14 +11,13 @@
 | ChatGPT | ChatGPT | 6448311069 | com.openai.chat | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6448311069) |
 | Claude | Claude by Anthropic | 6473753684 | com.anthropic.claude | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6473753684) |
 | Grok | Grok - AI Assistant | 6670324846 | ai.x.GrokApp | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6670324846) |
-| Grok Bot — связь с xAI не подтверждена | Grok Bot | 6794501026 | co.anysphere.sand | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6794501026) |
 | Happ - Proxy Utility | Happ - Proxy Utility | 6504287215 | su.ffg.happ | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6504287215) |
 | Mail.ru | Mail: Email, Cloud, Calendar | 511310430 | ru.mail.mail | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id511310430) |
 | MAX | MAX: messenger, calls | 6739530834 | ru.oneme.app | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6739530834) |
+| MEDSI | SmartMed – здоровье пациента | 1348775741 | ru.mts.smartmed | confirmed | unknown | [источник](https://medsi.ru/press-centr/news/chislo-skachivaniy-servisa-medsi-smartmed-prevysilo-1-million/) |
+| MEDSI | StoreMed - Здоровье онлайн | 6736902949 | com.newmed.startmed | confirmed | unknown | [источник](https://www.medsi.ru/lands/medsi-klub.php) |
 | Ozon | Ozon Банк | 1629869891 | ru.ozon.fintech.finance | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id1629869891) |
 | OZON: товары, одежда и обувь | OZON: товары, одежда и обувь | 407804998 | ru.ozon.OzonStore | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id407804998) |
-| SmartMed | SmartMed – здоровье пациента | 1348775741 | ru.mts.smartmed | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id1348775741) |
-| StoreMed — связь с MEDSI не подтверждена | StoreMed - Здоровье онлайн | 6736902949 | com.newmed.startmed | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6736902949) |
 | VK | VK: social network, messenger | 564177498 | com.vk.vkclient | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id564177498) |
 | VK | VK Music: playlists & podcasts | 1054372220 | com.music.vk | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id1054372220) |
 | VPN Windscribe: Fast & Secure | VPN Windscribe: Fast & Secure | 1129435228 | com.windscribe | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id1129435228) |
@@ -72,11 +71,24 @@
 | Т-Банк | DocStorage | 6451046063 | ru.tomlevierr.docstorage | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6451046063) |
 | Т-Банк | Т-Помощь | 6475807912 | — | reported | unknown | [источник](https://t.me/s/pogranichnyi_control?before=3162) |
 | Т-Банк | Т-Старт | 6476151601 | — | reported | unknown | [источник](https://mtsforum.mybb.ru/viewtopic.php?id=597&p=20) |
-| Т-Банк | Office Capital | 6744684419 | — | reported | unknown | [источник](https://4pda.to/forum/index.php?showtopic=1064562&st=1080) |
 | Т-Банк | EasyCatch Sounder | 6748913132 | com.easycatch.sounder | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6748913132) |
 | Т-Банк | U Wheels / TO | 6751416092 | — | reported | unknown | [источник](https://4pda.to/forum/index.php?showtopic=1064562&st=1700) |
 | Т-Банк | Clanstrix / Т-Б | 6751548294 | — | reported | unknown | [источник](https://4pda.to/forum/index.php?showtopic=1064562&st=1700) |
+| Т-Банк | Filtercare Techs | 6756361699 | com.filtercare.app | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/filtercare-techs/id6756361699) |
 | Т-Банк | Toastmas | 6774629936 | com.toastmaster.app | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id6774629936) |
+| Т-Инвестиции | Office Capital | 6744684419 | — | reported | unknown | [источник](https://4pda.to/forum/index.php?showtopic=1064562&st=1080) |
+| Т-Инвестиции | EatsRate | 6774562548 | com.paata.shihan | metadata_only | unknown | [источник](https://procash.app/articles/t-investicii-eatsrate-iphone) |
+| Т-Инвестиции | FuelInTime | 6799090729 | com.ivars.fueltime | metadata_only | unknown | [источник](https://www.tbank.ru/invest/social/profile/Beta_Testing_Invest/a24212a4-db32-402d-9a05-8a88a62a9255/) |
 | Я.Электрички и ЖД пассажирам | Я.Электрички и ЖД пассажирам | 387272416 | ru.yandex.rasp | metadata_only | unknown | [источник](https://apps.apple.com/ru/app/id387272416) |
 
-Предложения принимаются через [форму заявки](https://github.com/x0rif0r/AppDock/issues/new?template=app.yml) или Pull Request по [правилам](../CONTRIBUTING.md). Не прикладывайте IPA, данные Apple ID, лицензии аккаунтов, UDID или серийные номера.
+## Идентификаторы ещё уточняются
+
+Эти приложения наблюдались на устройстве, но точное соответствие числовому App Store ID пока не подтверждено. Они не используются для автоматического скачивания.
+
+| На iPhone | Имя в метаданных | Bundle ID | App Store ID |
+|---|---|---|---|
+| YellowT | YellowVendoTen | com.automart.murranmike | Не подтверждён |
+| Weave | LeatherWeave | com.cobble.track.work.app | Не подтверждён |
+| OfficeCapital | Office-Capital | com.dreamgoods.officecapital | Не подтверждён |
+
+Предложения принимаются через [форму заявки](https://github.com/x0rif0r/AppDock/issues/new?template=app.yml) или Pull Request по [правилам](../CONTRIBUTING.md). Не прикладывайте IPA, Apple ID, лицензии аккаунтов, UDID или серийные номера.
