@@ -111,6 +111,14 @@ struct QueuedTask: Identifiable {
     var localOnly = false
     var appleAccount: String? = nil
     var exportDirectory: URL?
+    var reinstallSameVersion = false
+}
+
+enum InstallationPolicy {
+    static func shouldSkip(current: String, requested: String, reinstallSameVersion: Bool) -> Bool {
+        let comparison = current.compare(requested, options: .numeric)
+        return comparison == .orderedDescending || (comparison == .orderedSame && !reinstallSameVersion)
+    }
 }
 
 struct DownloadRequest: Identifiable { var id = UUID().uuidString; var replacing: IPAItem? }

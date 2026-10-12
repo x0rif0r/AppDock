@@ -139,6 +139,16 @@ enum AppStoreCLI {
             }
         }
     }
+    func removeSelectedAccount() {
+        guard !working, !selectedEmail.isEmpty, !selectedIsActive else { return }
+        let remaining = accounts.filter { $0.id != selectedEmail.lowercased() }
+        do {
+            try JSONEncoder().encode(remaining).write(to: Self.folder.appendingPathComponent("accounts.json"), options: .atomic)
+            accounts = remaining; select("")
+            status = "Аккаунт убран из списка. IPA и сохранённая история остались; повторный вход вернёт аккаунт."
+            error = ""
+        } catch { self.error = "Не удалось убрать аккаунт: " + error.localizedDescription }
+    }
     func login(email: String, password: String) {
         guard !working else { return }
         guard !email.isEmpty, !password.isEmpty, !email.contains(where: { "\r\n\0".contains($0) }), !password.contains(where: { "\r\n\0".contains($0) }), email.utf8.count < 4096, password.utf8.count < 4096 else { error = "Проверьте формат логина и пароля"; return }
@@ -199,6 +209,7 @@ struct AccountLoginView: View {
             TextField("Apple ID: email или телефон", text: $email).textFieldStyle(.roundedBorder).disabled(model.working)
             SecureField("Пароль Apple ID", text: $password).textFieldStyle(.roundedBorder).disabled(model.working)
             if model.authState == "awaiting2fa" {
+                Text("ipatool запросил код 2FA. Отправка уведомления или SMS не подтверждена. Используйте код с доверенного устройства Apple; если код недоступен, отмените вход.").font(.caption).foregroundStyle(.secondary)
                 SecureField("Код подтверждения Apple · 6 цифр", text: $code).textFieldStyle(.roundedBorder)
                 Button("Подтвердить 2FA") { let value = code; code = ""; model.submitCode(value) }.buttonStyle(.borderedProminent).disabled(code.count != 6)
             } else {
@@ -294,6 +305,13 @@ struct AccountCatalogView: View {
                     .disabled(blocked || model.active == nil)
                     .help("Выйти из текущего аккаунта ipatool. IPA и сохранённая история останутся на Mac.")
                 Button("Обновить") { if model.selectedIsActive { model.refreshPurchases() } else { model.refreshCurrent(loadPurchases: true) } }.disabled(blocked)
+            }
+            HStack {
+                Text("Выход завершает сессию. Список аккаунтов хранится отдельно.").font(.caption).foregroundStyle(.secondary)
+                Spacer()
+                Button("Убрать аккаунт из списка") { selected.removeAll(); model.removeSelectedAccount() }
+                    .disabled(blocked || model.selectedEmail.isEmpty || model.selectedIsActive)
+                    .help("Сначала выйдите из активного аккаунта. IPA и сохранённая история не удаляются; повторный вход вернёт аккаунт.")
             }
             HStack {
                 Label(model.active.map { "Активен: " + $0.email } ?? "Вход не выполнен", systemImage: model.active == nil ? "person.crop.circle.badge.questionmark" : "checkmark.shield")

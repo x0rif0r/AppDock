@@ -52,6 +52,7 @@ struct DeviceSaveView: View {
     func saved(_ bundle: String) -> IPAItem? {
         shelf.items.first { $0.bundle == bundle && (shelf.cachedIDs.contains($0.id) || (try? $0.file(in: shelf.sourceRoot($0))) != nil) }
     }
+    var savedVisibleIDs: Set<String> { Set(bundles.compactMap { saved($0)?.id }) }
     func enqueue(_ ids: [Int]) {
         guard model.selectedIsActive, !model.working else { return }
         for id in Set(ids).sorted() { shelf.download(id: id, category: "С iPhone", replacing: nil, account: model.selectedEmail) }
@@ -101,6 +102,14 @@ struct DeviceSaveView: View {
                 }.disabled(blocked)
             }
             TextField("Название или Bundle ID", text: $search).textFieldStyle(.roundedBorder)
+            HStack {
+                if model.selectedIsActive {
+                    Label("Сессия подтверждена: \(model.selectedEmail)", systemImage: "checkmark.shield").font(.caption).foregroundStyle(.secondary)
+                } else {
+                    Text("Показана сохранённая история. Вход в выбранный аккаунт не выполнен.").font(.caption).foregroundStyle(.orange)
+                    Button("Войти в этот аккаунт…") { pendingDownloads = []; loginShown = true }.disabled(blocked || model.selectedEmail.isEmpty)
+                }
+            }
             Toggle("Только найденные ID · \(device.versions.keys.filter { identifier($0) != nil }.count) из \(device.versions.count)", isOn: $onlyKnown).toggleStyle(.checkbox)
             if device.inventoryChecked == nil { Text("Сначала прочитайте список приложений по USB.").foregroundStyle(.secondary) }
             ForEach(bundles, id: \.self) { bundle in
@@ -132,11 +141,12 @@ struct DeviceSaveView: View {
             HStack {
                 Button("Выбрать найденные") { selected = Set(bundles.filter { identifier($0) != nil && saved($0) == nil }) }.disabled(blocked)
                 Button("Скачать в очередь · \(selected.count)") { startDownloads() }.buttonStyle(.borderedProminent).disabled(selected.isEmpty || blocked)
-                Button("Выбрать сохранённые для установки") {
-                    shelf.selected = Set(device.versions.keys.compactMap { saved($0)?.id })
-                    shelf.savePreset("С iPhone · " + device.phone.name)
+                Button("К установке · \(savedVisibleIDs.count) сохранённых") {
+                    shelf.selected = savedVisibleIDs
+                    let suffix = search.trimmingCharacters(in: .whitespacesAndNewlines)
+                    shelf.savePreset("С iPhone · " + device.phone.name + (suffix.isEmpty ? "" : " · " + suffix))
                     shelf.historyShown = false
-                }
+                }.disabled(blocked || savedVisibleIDs.isEmpty)
             }
             Text("Удаление из магазина не означает отсутствие лицензии. Возможность загрузки проверяется самой загрузкой; AppDock не выдаёт новую лицензию автоматически.").font(.caption).foregroundStyle(.secondary)
         }

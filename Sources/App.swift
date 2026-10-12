@@ -17,6 +17,7 @@ import UniformTypeIdentifiers
     @Published var refreshing = false
     @Published var cancelRequested = false
     @Published var stopOnError = true
+    @Published var reinstallSameVersion = false
     @Published var headline = "Выберите приложения и подключите iPhone по USB"
     @Published var log = ""
     @Published var completed = 0
@@ -244,7 +245,7 @@ import UniformTypeIdentifiers
         let queue = chosen
         let bundles = queue.compactMap(\.bundle)
         guard Set(bundles).count == bundles.count else { errorMessage = "Оставьте одну версию каждого приложения с одинаковым Bundle ID"; return }
-        pendingTasks.append(QueuedTask(kind: .install, title: "Установить \(queue.count) приложений", apps: queue, phone: target))
+        pendingTasks.append(QueuedTask(kind: .install, title: "Установить \(queue.count) приложений", apps: queue, phone: target, reinstallSameVersion: reinstallSameVersion))
         startNextTask()
     }
     func startNextTask() {
@@ -254,7 +255,7 @@ import UniformTypeIdentifiers
         switch task.kind {
         case .install:
             guard let phone = task.phone else { operationFinished(); return }
-            performInstall(task.apps, target: phone)
+            performInstall(task.apps, target: phone, reinstallSameVersion: task.reinstallSameVersion)
         case .download:
             guard let id = task.appID else { operationFinished(); return }
             performDownload(id: id, category: task.category, replacing: task.replacing, localOnly: task.localOnly, expectedAccount: task.appleAccount)
@@ -265,7 +266,7 @@ import UniformTypeIdentifiers
         busy = false; currentTask = nil
         startNextTask()
     }
-    func performInstall(_ queue: [IPAItem], target: Phone) {
+    func performInstall(_ queue: [IPAItem], target: Phone, reinstallSameVersion: Bool = false) {
         let bundles = queue.compactMap(\.bundle)
         guard Set(bundles).count == bundles.count else {
             errorMessage = "Выбраны несколько IPA с одинаковым Bundle ID. Оставьте одну версию каждого приложения."; return
@@ -296,7 +297,7 @@ import UniformTypeIdentifiers
                     let versions = try await Task.detached { try DeviceTools.installed(on: target) }.value
                     previousVersion = versions[bundle]
                     try saveSnapshot(versions, phone: target)
-                    if let current = versions[bundle], current.compare(version, options: .numeric) != .orderedAscending {
+                    if let current = versions[bundle], InstallationPolicy.shouldSkip(current: current, requested: version, reinstallSameVersion: reinstallSameVersion) {
                         try record(item, phone: target, eventID: eventID, previous: previousVersion, result: current, outcome: "Пропущено", detail: "Уже установлена такая же или более новая версия")
                         states[item.id] = "Уже есть \(current)"; append("\(item.title): пропущено — на iPhone такая же или более новая версия.")
                     } else {
@@ -761,6 +762,8 @@ struct DevicePanel: View {
                 }.buttonStyle(.borderedProminent).controlSize(.large).disabled(shelf.phone == nil || shelf.chosen.isEmpty || shelf.refreshing)
                 Button("Очередь · \(shelf.pendingTasks.count)") { shelf.queueShown = true }.frame(maxWidth: .infinity)
                 Toggle("Остановить при ошибке", isOn: $shelf.stopOnError).font(.caption).disabled(shelf.busy)
+                Toggle("Переустановить такую же версию", isOn: $shelf.reinstallSameVersion).font(.caption).disabled(shelf.busy)
+                    .help("Повторно передать IPA той же версии. Более новая версия на iPhone всегда пропускается.")
                 ForEach(Array(Set(shelf.chosen.map { $0.licenseAccount ?? "не указан в IPA" })).sorted(), id: \.self) { account in Text("Apple ID: " + account).font(.caption2).textSelection(.enabled) }
                 Text("Более новые версии пропускаются. Лицензии Apple ID сохраняются.").font(.caption2).foregroundStyle(.secondary)
             }.padding(22)
