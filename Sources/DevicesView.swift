@@ -90,7 +90,7 @@ struct DeviceHistoryView: View {
                 Label(overview ? "Ваши устройства" : "Устройства и история", systemImage: "iphone.gen3").font(.title2.bold())
                 if overview { Text("\(shelf.book.devices.count)").font(.caption.bold()).padding(.horizontal, 9).padding(.vertical, 4).background(.quaternary, in: Capsule()) }
                 Spacer()
-                Button("Импорт отчёта iMazing…") { shelf.importDeviceReport() }.disabled(shelf.busy)
+                Button("Обновить по USB", systemImage: "arrow.clockwise") { shelf.refreshDevices() }.disabled(shelf.busy || shelf.refreshing)
                 Button("Готово") { dismiss() }.keyboardShortcut(.cancelAction)
             }.padding(22)
             Divider()
@@ -157,7 +157,7 @@ struct DeviceHistoryView: View {
                                         }.padding(10).background(.quaternary.opacity(0.4), in: RoundedRectangle(cornerRadius: 10))
                                     }
                                 } else {
-                                    ContentUnavailableView("Список ещё не получен", systemImage: "apps.iphone", description: Text("Подключите этот iPhone и выберите его в главном окне. В текстовом отчёте нет списка установленных приложений."))
+                                    ContentUnavailableView("Список ещё не получен", systemImage: "apps.iphone", description: Text("Подключите этот iPhone и прочитайте список по USB в разделе «Сохранить с iPhone»."))
                                 }
                             } else {
                                 Text("История действий AppDock. Установки через другие программы сюда не добавляются задним числом.").font(.caption).foregroundStyle(.secondary)
@@ -177,7 +177,7 @@ struct DeviceHistoryView: View {
                         }.padding(24).id(device.id + page)
                     }
                 } else {
-                    ContentUnavailableView("Выберите устройство", systemImage: "iphone", description: Text("Подключите iPhone или импортируйте текстовый отчёт iMazing.")).frame(maxWidth: .infinity)
+                    ContentUnavailableView("Выберите устройство", systemImage: "iphone", description: Text("Подключите iPhone по USB и нажмите «Обновить по USB».")).frame(maxWidth: .infinity)
                 }
             }
             }

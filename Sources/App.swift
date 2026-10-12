@@ -369,17 +369,6 @@ import UniformTypeIdentifiers
         historyDeviceID = id ?? phoneID
         historyShown = true
     }
-    func importDeviceReport() {
-        let panel = NSOpenPanel(); panel.allowedContentTypes = [.plainText]
-        panel.message = "Выберите текстовый отчёт iMazing. Импортируются только сведения для карточки устройства."
-        guard panel.runModal() == .OK, let file = panel.url else { return }
-        do {
-            let phone = try DeviceBook.parseIMazingReport(String(contentsOf: file, encoding: .utf8))
-            book.remember(phone, connected: false, source: "Отчёт iMazing")
-            try persistBook()
-            showHistory(phone.id)
-        } catch { errorMessage = error.localizedDescription }
-    }
     func chooseDeviceImage(_ id: String, lockScreen: Bool = false) {
         let panel = NSOpenPanel(); panel.allowedContentTypes = [.png, .jpeg, .heic, .tiff]
         panel.message = lockScreen ? "Выберите настоящий снимок экрана блокировки iPhone с часами и виджетами. Сделайте его на iPhone и передайте на Mac через AirDrop." : "Выберите снимок экрана или картинку для узнаваемой карточки iPhone"

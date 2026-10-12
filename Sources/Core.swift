@@ -344,21 +344,7 @@ struct DeviceBook: Codable {
         guard FileManager.default.fileExists(atPath: file.path) else { return DeviceBook() }
         return try JSONDecoder().decode(DeviceBook.self, from: Data(contentsOf: file))
     }
-    /// Only device identification/display fields are imported. The report is data, never instructions.
-    static func parseIMazingReport(_ text: String) throws -> Phone {
-        var values: [String: String] = [:]
-        for line in text.split(whereSeparator: \.isNewline) {
-            guard let separator = line.firstIndex(of: ":") else { continue }
-            let key = String(line[..<separator]).trimmingCharacters(in: .whitespaces)
-            if values[key] == nil { values[key] = String(line[line.index(after: separator)...]).trimmingCharacters(in: .whitespaces) }
-        }
-        guard let id = values["Unique Device ID"], id.count >= 20, id.count <= 50,
-              id.allSatisfy({ $0.isHexDigit || $0 == "-" }), let name = values["Имя"] ?? values["Name"] else {
-            throw ShelfError.message("В отчёте iMazing нет корректного UDID и имени устройства")
-        }
-        let ios = (values["Операционная система"] ?? values["Operating System"] ?? "").replacingOccurrences(of: "iOS ", with: "")
-        return Phone(id: id, name: name, ios: ios, model: values["Model Product Type"] ?? "", serial: values["Serial Number"] ?? "", storage: values["Storage - Total"].map { "Объём: " + $0 } ?? "", modelNumber: values["Model Number"] ?? "", regulatoryModel: values["Regulatory Model Number"] ?? "", marketingName: values["Модель"] ?? values["Model"] ?? "")
-    }
+
 }
 
 struct InstalledSnapshot: Sendable { let versions: [String: String]; let names: [String: String]; var storeIDs: [String: Int] = [:] }
