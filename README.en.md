@@ -1,4 +1,13 @@
-# AppDock
+<h1 align="center">AppDock</h1>
+
+<p align="center"><strong>Your apps. Your library.</strong><br>Save IPAs → build a preset → install over USB.</p>
+
+<p align="center">
+  <a href="https://github.com/x0rif0r/AppDock/releases"><img alt="Release" src="https://img.shields.io/github/v/release/x0rif0r/AppDock?include_prereleases&style=flat-square&color=6366f1"></a>
+  <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-111827?style=flat-square">
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple-Silicon-111827?style=flat-square">
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-6366f1?style=flat-square"></a>
+</p>
 
 [Русский](README.md) · [English](README.en.md) · [简体中文](README.zh-CN.md)
 
@@ -9,6 +18,33 @@ AppDock brings together your Apple ID purchase history, IPA downloads through ip
 [Detailed guide — Russian](docs/USER_GUIDE.md) · [Download](https://github.com/x0rif0r/AppDock/releases) · [Report an issue](https://github.com/x0rif0r/AppDock/issues) · [MIT](LICENSE)
 
 Created by **x0rif0r**. Version **2.1.2** is a prerelease for **Apple Silicon and macOS 14+**. This README is translated; the current app interface, detailed guide, and community catalog are in Russian. English labels below describe the corresponding Russian controls.
+
+## Screenshots
+
+Actual interface with demonstration data. Accounts, devices, and details shown are fictional; this is not a personal library.
+
+![ Library and installation ](docs/images/library.png)
+
+<details>
+<summary>Purchases and accounts · Task queue · Devices</summary>
+
+### Purchases and accounts
+
+![Purchases and accounts](docs/images/accounts.png)
+
+### Task queue
+
+![Task queue](docs/images/queue.png)
+
+### Devices
+
+![Devices](docs/images/devices.png)
+
+</details>
+
+## Compatibility
+
+iOS 26.6.2: USB installation and launching EatsRate were tested end to end. **iOS 27: reported working by the user; the complete workflow has not been independently tested on this version.** Each IPA’s compatibility and license availability must be checked separately.
 
 ## Features
 

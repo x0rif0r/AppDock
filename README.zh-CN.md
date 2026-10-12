@@ -1,4 +1,13 @@
-# AppDock
+<h1 align="center">AppDock</h1>
+
+<p align="center"><strong>您的应用，您的资料库。</strong><br>保存 IPA → 创建预设 → 通过 USB 安装。</p>
+
+<p align="center">
+  <a href="https://github.com/x0rif0r/AppDock/releases"><img alt="Release" src="https://img.shields.io/github/v/release/x0rif0r/AppDock?include_prereleases&style=flat-square&color=6366f1"></a>
+  <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-111827?style=flat-square">
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple-Silicon-111827?style=flat-square">
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-6366f1?style=flat-square"></a>
+</p>
 
 [Русский](README.md) · [English](README.en.md) · [简体中文](README.zh-CN.md)
 
@@ -9,6 +18,33 @@ AppDock 将 Apple ID 购买记录、通过 ipatool 下载 IPA、本地或 NAS �
 [详细指南（俄语）](docs/USER_GUIDE.md) · [下载](https://github.com/x0rif0r/AppDock/releases) · [反馈问题](https://github.com/x0rif0r/AppDock/issues) · [MIT 许可证](LICENSE)
 
 作者：**x0rif0r**。**2.1.2** 是适用于 **Apple Silicon 和 macOS 14 及以上版本**的预发布版本。本文件为中文说明；当前应用界面、详细指南和社区目录仍为俄语。下文保留实际按钮的俄语名称，并附上中文解释。
+
+## 界面截图
+
+真实界面使用演示数据。截图中的账号、设备及相关信息均为虚构，不是个人资料库。
+
+![ 资料库与安装 ](docs/images/library.png)
+
+<details>
+<summary>购买记录与账号 · 任务队列 · 设备</summary>
+
+### 购买记录与账号
+
+![购买记录与账号](docs/images/accounts.png)
+
+### 任务队列
+
+![任务队列](docs/images/queue.png)
+
+### 设备
+
+![设备](docs/images/devices.png)
+
+</details>
+
+## 兼容性
+
+iOS 26.6.2：已完成 EatsRate 的 USB 安装及启动流程测试。**iOS 27：用户反馈可以使用；尚未在该版本上独立验证完整流程。** 每个 IPA 的兼容性及许可证可用性仍需单独检查。
 
 ## 功能
 

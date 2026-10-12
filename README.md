@@ -1,4 +1,13 @@
-# AppDock
+<h1 align="center">AppDock</h1>
+
+<p align="center"><strong>Ваши приложения. Ваша библиотека.</strong><br>Сохраните IPA → соберите набор → установите по USB.</p>
+
+<p align="center">
+  <a href="https://github.com/x0rif0r/AppDock/releases"><img alt="Release" src="https://img.shields.io/github/v/release/x0rif0r/AppDock?include_prereleases&style=flat-square&color=6366f1"></a>
+  <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-111827?style=flat-square">
+  <img alt="Apple Silicon" src="https://img.shields.io/badge/Apple-Silicon-111827?style=flat-square">
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-6366f1?style=flat-square"></a>
+</p>
 
 [Русский](README.md) · [English](README.en.md) · [简体中文](README.zh-CN.md)
 
@@ -9,6 +18,33 @@ AppDock объединяет историю покупок ваших Apple ID, 
 [Подробная инструкция](docs/USER_GUIDE.md) · [Скачать релиз](https://github.com/x0rif0r/AppDock/releases) · [Сообщить об ошибке](https://github.com/x0rif0r/AppDock/issues) · [MIT](LICENSE)
 
 Автор: **x0rif0r**. Версия 2.1.2 — предварительный релиз для **Apple Silicon и macOS 14+**.
+
+## Скриншоты
+
+Реальный интерфейс с демонстрационными данными. Аккаунт, устройства и сведения на снимках вымышлены; это не личная библиотека.
+
+![ Библиотека и установка ](docs/images/library.png)
+
+<details>
+<summary>Покупки и аккаунты · Очередь задач · Устройства</summary>
+
+### Покупки и аккаунты
+
+![Покупки и аккаунты](docs/images/accounts.png)
+
+### Очередь задач
+
+![Очередь задач](docs/images/queue.png)
+
+### Устройства
+
+![Устройства](docs/images/devices.png)
+
+</details>
+
+## Совместимость
+
+iOS 26.6.2 — USB-установка и запуск EatsRate проверены в полном сценарии. **iOS 27 — работа подтверждена по сообщению пользователя; полный маршрут на этой версии независимо не проверен.** Совместимость каждого IPA и доступность его лицензии проверяются отдельно.
 
 ## Возможности
 
