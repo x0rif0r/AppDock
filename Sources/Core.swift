@@ -152,13 +152,15 @@ enum DeviceTools {
         }
         var versions: [String: String] = [:]
         var names: [String: String] = [:]
+        var storeIDs: [String: Int] = [:]
         for app in array {
             if let bundle = app["CFBundleIdentifier"] as? String {
+                if let number = app["ItemID"] as? NSNumber, number.intValue > 0 { storeIDs[bundle] = number.intValue }
                 versions[bundle] = app["CFBundleShortVersionString"] as? String ?? ""
                 names[bundle] = app["CFBundleDisplayName"] as? String ?? app["CFBundleName"] as? String ?? bundle
             }
         }
-        return InstalledSnapshot(versions: versions, names: names)
+        return InstalledSnapshot(versions: versions, names: names, storeIDs: storeIDs)
     }
     static func installed(on phone: Phone) throws -> [String: String] { try installedSnapshot(on: phone).versions }
     static func meetsMinimum(_ current: String, _ minimum: String) -> Bool {
@@ -303,6 +305,7 @@ struct RememberedDevice: Codable, Identifiable {
     var inventoryChecked: Date?
     var versions: [String: String] = [:]
     var appNames: [String: String] = [:]
+    var storeIDs: [String: Int]?
     var imagePath: String?
     var imageKind: String?
     var imageDate: Date?
@@ -358,4 +361,4 @@ struct DeviceBook: Codable {
     }
 }
 
-struct InstalledSnapshot: Sendable { let versions: [String: String]; let names: [String: String] }
+struct InstalledSnapshot: Sendable { let versions: [String: String]; let names: [String: String]; var storeIDs: [String: Int] = [:] }

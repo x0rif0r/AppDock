@@ -28,6 +28,7 @@ struct DeviceHistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var page = "Приложения"
     @State private var search = ""
+    @State private var forgetShown = false
     var device: RememberedDevice? { shelf.book.devices.first { $0.id == shelf.historyDeviceID } }
     var connected: Bool { shelf.phones.contains { $0.id == shelf.historyDeviceID } }
     var events: [InstallationEvent] { shelf.book.events.filter { $0.deviceID == shelf.historyDeviceID }.sorted { $0.date > $1.date } }
@@ -58,7 +59,7 @@ struct DeviceHistoryView: View {
                 Divider()
                 if let device {
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 16) {
+                        LazyVStack(alignment: .leading, spacing: 16) {
                             HStack(alignment: .top, spacing: 22) {
                                 VStack(spacing: 10) {
                                     PhonePreview(device: device)
@@ -76,11 +77,14 @@ struct DeviceHistoryView: View {
                                     Text("UDID: \(device.id)").font(.caption).foregroundStyle(.secondary).textSelection(.enabled)
                                     if let date = device.lastConnected { Text("Последнее подключение: \(date.formatted(date: .abbreviated, time: .shortened))").font(.caption).foregroundStyle(.secondary) }
                                     Text("Источник: \(device.source)").font(.caption).foregroundStyle(.secondary)
+                                    Button("Забыть устройство…", role: .destructive) { forgetShown = true }.disabled(shelf.busy || shelf.refreshing || !shelf.pendingTasks.isEmpty)
                                 }
                             }
                             Divider()
-                            Picker("Раздел", selection: $page) { Text("Приложения").tag("Приложения"); Text("История установок").tag("История") }.pickerStyle(.segmented)
-                            if page == "Приложения" {
+                            Picker("Раздел", selection: $page) { Text("Приложения").tag("Приложения"); Text("История установок").tag("История"); Text("Сохранить с iPhone").tag("Сохранить") }.pickerStyle(.segmented)
+                            if page == "Сохранить" {
+                                DeviceSaveView(shelf: shelf, model: shelf.accounts, device: device)
+                            } else if page == "Приложения" {
                                 if let checked = device.inventoryChecked {
                                     Text("Список прочитан с iPhone: \(checked.formatted(date: .abbreviated, time: .shortened)). После отключения это сохранённый снимок, а не текущая проверка.").font(.caption).foregroundStyle(.secondary)
                                     TextField("Поиск по приложениям", text: $search).textFieldStyle(.roundedBorder)
@@ -94,7 +98,7 @@ struct DeviceHistoryView: View {
                                     ContentUnavailableView("Список ещё не получен", systemImage: "apps.iphone", description: Text("Подключите этот iPhone и выберите его в главном окне. В текстовом отчёте нет списка установленных приложений."))
                                 }
                             } else {
-                                Text("История действий IPA Полки. Установки через другие программы сюда не добавляются задним числом.").font(.caption).foregroundStyle(.secondary)
+                                Text("История действий AppDock. Установки через другие программы сюда не добавляются задним числом.").font(.caption).foregroundStyle(.secondary)
                                 ForEach(events) { event in
                                     VStack(alignment: .leading, spacing: 7) {
                                         HStack {
@@ -108,13 +112,16 @@ struct DeviceHistoryView: View {
                                 }
                                 if events.isEmpty { ContentUnavailableView("История пока пуста", systemImage: "clock.arrow.circlepath", description: Text("Здесь появятся установки, пропуски и ошибки для этого iPhone.")) }
                             }
-                        }.padding(24)
+                        }.padding(24).id(device.id + page)
                     }
                 } else {
                     ContentUnavailableView("Выберите устройство", systemImage: "iphone", description: Text("Подключите iPhone или импортируйте текстовый отчёт iMazing.")).frame(maxWidth: .infinity)
                 }
             }
         }.frame(width: 960, height: 720)
+            .confirmationDialog("Забыть выбранное устройство?", isPresented: $forgetShown, titleVisibility: .visible) {
+                Button("Удалить карточку и историю", role: .destructive) { if let device { shelf.forgetDevice(device.id) } }
+            } message: { Text("Сохранённая карточка и история установок будут удалены из AppDock. Приложения на iPhone и IPA в библиотеке останутся. Подключённое устройство снова появится после сканирования.") }
             .onAppear { if device == nil { shelf.historyDeviceID = shelf.book.devices.first?.id ?? "" } }
     }
 }

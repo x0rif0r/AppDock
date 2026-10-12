@@ -285,10 +285,10 @@ struct AccountCatalogView: View {
                 Spacer(); Button("Готово") { dismiss() }.keyboardShortcut(.cancelAction)
             }
             HStack(spacing: 16) {
-                Picker("Аккаунт", selection: Binding(get: { model.selectedEmail }, set: { model.select($0); selected.removeAll() })) {
+                Picker("Аккаунт", selection: Binding(get: { model.selectedEmail }, set: { model.select($0); selected.removeAll(); if !$0.isEmpty && !model.selectedIsActive { loginEmail = $0; loginShown = true } })) {
                     Text("Выберите аккаунт").tag("")
                     ForEach(model.accounts) { Text($0.email).tag($0.email) }
-                }.frame(maxWidth: 480).disabled(model.working)
+                }.frame(maxWidth: 480).disabled(blocked)
                 Button(model.selectedIsActive ? "Другой аккаунт…" : "Войти в этот аккаунт…") { loginEmail = model.selectedIsActive ? "" : model.selectedEmail; loginShown = true }.disabled(blocked)
                 Button("Выйти", systemImage: "rectangle.portrait.and.arrow.right") { selected.removeAll(); model.logout() }
                     .disabled(blocked || model.active == nil)

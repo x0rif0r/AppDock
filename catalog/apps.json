@@ -3,6 +3,160 @@
   "updatedOn": "2026-10-12",
   "apps": [
     {
+      "id": 481627348,
+      "name": "2GIS: Map, Navigation, Tracker",
+      "family": "2GIS: Map, Navigation, Tracker",
+      "bundleID": "ru.doublegis.grymmobile",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id481627348"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 580243869,
+      "name": "Aeroflot – air tickets online",
+      "family": "Aeroflot – air tickets online",
+      "bundleID": "ru.aeroflot.afl",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id580243869"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1475911720,
+      "name": "Airalo: eSIM for travel & data",
+      "family": "Airalo: eSIM for travel & data",
+      "bundleID": "com.mobillium.airalo",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1475911720"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1497865709,
+      "name": "Avtodor",
+      "family": "Avtodor",
+      "bundleID": "ru.avtodor-tr.mobile.new",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1497865709"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6448311069,
+      "name": "ChatGPT",
+      "family": "ChatGPT",
+      "bundleID": "com.openai.chat",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6448311069"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6473753684,
+      "name": "Claude by Anthropic",
+      "family": "Claude",
+      "bundleID": "com.anthropic.claude",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6473753684"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6670324846,
+      "name": "Grok - AI Assistant",
+      "family": "Grok",
+      "bundleID": "ai.x.GrokApp",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6670324846"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6794501026,
+      "name": "Grok Bot",
+      "family": "Grok Bot — связь с xAI не подтверждена",
+      "bundleID": "co.anysphere.sand",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6794501026"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6504287215,
+      "name": "Happ - Proxy Utility",
+      "family": "Happ - Proxy Utility",
+      "bundleID": "su.ffg.happ",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6504287215"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 511310430,
+      "name": "Mail: Email, Cloud, Calendar",
+      "family": "Mail.ru",
+      "bundleID": "ru.mail.mail",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id511310430"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6739530834,
+      "name": "MAX: messenger, calls",
+      "family": "MAX",
+      "bundleID": "ru.oneme.app",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6739530834"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
       "id": 1629869891,
       "name": "Ozon Банк",
       "family": "Ozon",
@@ -15,6 +169,188 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 407804998,
+      "name": "OZON: товары, одежда и обувь",
+      "family": "OZON: товары, одежда и обувь",
+      "bundleID": "ru.ozon.OzonStore",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id407804998"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1348775741,
+      "name": "SmartMed – здоровье пациента",
+      "family": "SmartMed",
+      "bundleID": "ru.mts.smartmed",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1348775741"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6736902949,
+      "name": "StoreMed - Здоровье онлайн",
+      "family": "StoreMed — связь с MEDSI не подтверждена",
+      "bundleID": "com.newmed.startmed",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6736902949"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 564177498,
+      "name": "VK: social network, messenger",
+      "family": "VK",
+      "bundleID": "com.vk.vkclient",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id564177498"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1054372220,
+      "name": "VK Music: playlists & podcasts",
+      "family": "VK",
+      "bundleID": "com.music.vk",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1054372220"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1129435228,
+      "name": "VPN Windscribe: Fast & Secure",
+      "family": "VPN Windscribe: Fast & Secure",
+      "bundleID": "com.windscribe",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1129435228"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 597880187,
+      "name": "WILDBERRIES",
+      "family": "WILDBERRIES",
+      "bundleID": "RU.WILDBERRIES.MOBILEAPP",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id597880187"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1441195209,
+      "name": "WireGuard",
+      "family": "WireGuard",
+      "bundleID": "com.wireguard.ios",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1441195209"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 472650686,
+      "name": "Yandex Go: Taxi Food Delivery",
+      "family": "Yandex Go: Taxi Food Delivery",
+      "bundleID": "ru.yandex.ytaxi",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id472650686"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 313877526,
+      "name": "Yandex Maps & Navigator",
+      "family": "Yandex Maps & Navigator",
+      "bundleID": "ru.yandex.traffic",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id313877526"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1369890634,
+      "name": "Yandex Market: online shopping",
+      "family": "Yandex Market: online shopping",
+      "bundleID": "ru.yandex.blue.market",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1369890634"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1632443454,
+      "name": "Yandex Travel: Booking Hotels",
+      "family": "Yandex Travel: Booking Hotels",
+      "bundleID": "ru.yandex.travel",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1632443454"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6448745076,
+      "name": "YPLACES - онлайн-запись",
+      "family": "YPLACES - онлайн-запись",
+      "bundleID": "com.yplaces.app",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6448745076"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
       "id": 417281773,
@@ -89,6 +425,20 @@
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
     },
     {
+      "id": 1039418352,
+      "name": "АльфаСтрахование Мобайл",
+      "family": "АльфаСтрахование",
+      "bundleID": "com.redmadrobot.alfastrahovanie",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1039418352"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
       "id": 6772217339,
       "name": "Умный Попутчик",
       "family": "Беларусь",
@@ -101,6 +451,34 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 569251594,
+      "name": "билайн",
+      "family": "билайн",
+      "bundleID": "ru.beeline.mobile",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id569251594"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1399903464,
+      "name": "ВВ: доставка продуктов на дом",
+      "family": "ВВ: доставка продуктов на дом",
+      "bundleID": "com.vkusvill",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1399903464"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
       "id": 472951966,
@@ -131,6 +509,118 @@
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
     },
     {
+      "id": 1367959794,
+      "name": "Госуслуги",
+      "family": "Госуслуги",
+      "bundleID": "com.minsvyaz.gosuslugi",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1367959794"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1616550510,
+      "name": "Госуслуги.Дом",
+      "family": "Госуслуги.Дом",
+      "bundleID": "ru.sigma.gisgkh",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1616550510"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 949484366,
+      "name": "ЕМИАС.ИНФО",
+      "family": "ЕМИАС.ИНФО",
+      "bundleID": "P-C-H.EMIAS",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id949484366"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1319319386,
+      "name": "Ингосстрах IngoMobile онлайн",
+      "family": "Ингосстрах",
+      "bundleID": "ru.ingos.ingomobile",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1319319386"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 6744680809,
+      "name": "iManager by INS INVEST",
+      "family": "Ингосстрах",
+      "bundleID": "am.invest.imanager",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id6744680809"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 778681735,
+      "name": "МегаФон",
+      "family": "МегаФон",
+      "bundleID": "ru.megafon.lk",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id778681735"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1439322951,
+      "name": "Мой Мосэнергосбыт",
+      "family": "Мой Мосэнергосбыт",
+      "bundleID": "ru.tii.lkcomu",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1439322951"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1069871095,
+      "name": "Мой МТС",
+      "family": "Мой МТС",
+      "bundleID": "ru.mts.mymts",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1069871095"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
       "id": 6450266264,
       "name": "Мой кошелек",
       "family": "МТС-Банк",
@@ -157,6 +647,34 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 1286819946,
+      "name": "Налоги ФЛ",
+      "family": "Налоги ФЛ",
+      "bundleID": "ru.fns.lkfl",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1286819946"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
+      "id": 1529237989,
+      "name": "Парковки в Нижнем Новгороде",
+      "family": "Парковки в Нижнем Новгороде",
+      "bundleID": "ru.megafon.nn.parking.app",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1529237989"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
       "id": 468731698,
@@ -187,6 +705,20 @@
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
     },
     {
+      "id": 771700826,
+      "name": "Почта России",
+      "family": "Почта России",
+      "bundleID": "ru.russianpost.Russian-Post",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id771700826"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
+    },
+    {
       "id": 557857165,
       "name": "Райффайзен Онлайн Банк Россия",
       "family": "Райффайзен",
@@ -199,6 +731,20 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 1195015982,
+      "name": "РЖД Пассажирам: билеты; вокзал",
+      "family": "РЖД Пассажирам: билеты; вокзал",
+      "bundleID": "ru.rzd.passenger",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id1195015982"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     },
     {
       "id": 492224193,
@@ -479,6 +1025,20 @@
       ],
       "checkedOn": "2026-10-12",
       "notes": "ID и Bundle ID сверены с метаданными IPA. Это не подтверждение официальной связи с банком или доступности на вашем Apple ID."
+    },
+    {
+      "id": 387272416,
+      "name": "Я.Электрички и ЖД пассажирам",
+      "family": "Я.Электрички и ЖД пассажирам",
+      "bundleID": "ru.yandex.rasp",
+      "aliases": [],
+      "verification": "metadata_only",
+      "distribution": "unknown",
+      "sources": [
+        "https://apps.apple.com/ru/app/id387272416"
+      ],
+      "checkedOn": "2026-10-12",
+      "notes": "App Store ID и Bundle ID сверены с метаданными IPA. Доступность, официальность и связь с брендом требуют отдельной проверки; ссылка App Store может уже не открываться."
     }
   ]
 }

@@ -8,7 +8,7 @@ if [[ ! -f build/AppIcon.icns ]]; then
   build/make-icon
 fi
 swiftc -O -parse-as-library -swift-version 5 -target arm64-apple-macos14.0 -module-cache-path build/module-cache \
-  Sources/Core.swift Sources/Storage.swift Sources/Accounts.swift Sources/Library.swift Sources/DevicesView.swift Sources/App.swift -framework SwiftUI -framework AppKit -framework Security \
+  Sources/Core.swift Sources/Storage.swift Sources/Accounts.swift Sources/Library.swift Sources/DevicesView.swift Sources/DeviceSave.swift Sources/App.swift -framework SwiftUI -framework AppKit -framework Security \
   -o "$APP/Contents/MacOS/IPAOrganizer"
 clang -O2 -Wall -Wextra Helpers/auth.c -o "$APP/Contents/MacOS/appdock-auth"
 codesign --force --sign - "$APP/Contents/MacOS/appdock-auth"
@@ -24,12 +24,13 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <key>CFBundleDisplayName</key><string>AppDock</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>CFBundleIconFile</key><string>AppIcon</string>
-<key>CFBundleShortVersionString</key><string>2.0</string>
-<key>CFBundleVersion</key><string>10</string>
+<key>CFBundleShortVersionString</key><string>2.1</string>
+<key>CFBundleVersion</key><string>11</string>
 <key>LSMinimumSystemVersion</key><string>14.0</string>
 <key>NSHighResolutionCapable</key><true/>
 </dict></plist>
 PLIST
+cp catalog/apps.json "$APP/Contents/Resources/app-catalog.json"
 cp LICENSE "$APP/Contents/Resources/LICENSE"
 cp THIRD_PARTY_NOTICES.md "$APP/Contents/Resources/THIRD_PARTY_NOTICES.md"
 ditto Licenses "$APP/Contents/Resources/Licenses"

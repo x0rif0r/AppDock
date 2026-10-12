@@ -216,7 +216,7 @@ import UniformTypeIdentifiers
                 if let phone {
                     let snapshot = try await Task.detached { try DeviceTools.installedSnapshot(on: phone) }.value
                     installed = snapshot.versions
-                    try saveSnapshot(installed, phone: phone, deviceNames: snapshot.names)
+                    try saveSnapshot(installed, phone: phone, deviceNames: snapshot.names, storeIDs: snapshot.storeIDs)
                     headline = "\(phone.name) · iOS \(phone.ios) · USB"
                 } else { installed = [:]; headline = "iPhone не найден. Подключите кабель, разблокируйте и подтвердите доверие." }
             } catch { errorMessage = error.localizedDescription }
@@ -341,10 +341,11 @@ import UniformTypeIdentifiers
         guard historyWritable else { throw ShelfError.message("История повреждена. Сохраните и восстановите devices-history.json в папке поддержки приложения перед записью новой истории.") }
         try book.save(to: Self.support)
     }
-    func saveSnapshot(_ versions: [String: String], phone: Phone, deviceNames: [String: String] = [:]) throws {
+    func saveSnapshot(_ versions: [String: String], phone: Phone, deviceNames: [String: String] = [:], storeIDs: [String: Int] = [:]) throws {
         var names = Dictionary(items.compactMap { item -> (String, String)? in item.bundle.map { ($0, item.title) } }, uniquingKeysWith: { old, _ in old })
         names.merge(deviceNames) { _, new in new }
         book.snapshot(versions, phone: phone, names: names)
+        if let index = book.devices.firstIndex(where: { $0.id == phone.id }), !storeIDs.isEmpty { book.devices[index].storeIDs = storeIDs }
         try persistBook()
     }
     func record(_ item: IPAItem, phone: Phone, eventID: String, previous: String?, result: String?, outcome: String, detail: String) throws {
@@ -353,6 +354,16 @@ import UniformTypeIdentifiers
         if let index = book.events.firstIndex(where: { $0.id == eventID }) { book.events[index] = event }
         else { book.events.append(event) }
         try persistBook()
+    }
+    func forgetDevice(_ id: String) {
+        guard !busy, !refreshing, pendingTasks.isEmpty else { return }
+        let previous = book
+        book.devices.removeAll { $0.id == id }
+        book.events.removeAll { $0.deviceID == id }
+        do {
+            try persistBook()
+            historyDeviceID = book.devices.first?.id ?? ""
+        } catch { book = previous; errorMessage = error.localizedDescription }
     }
     func showHistory(_ id: String? = nil) {
         historyDeviceID = id ?? phoneID
