@@ -125,6 +125,20 @@ enum AppStoreCLI {
             } catch { guard generation == request else { return }; working = false; self.error = error.localizedDescription; status = "Список не обновлён · показана сохранённая история" }
         }
     }
+    func logout() {
+        guard !working, active != nil else { return }
+        working = true; error = ""; status = "Выход из App Store…"
+        Task {
+            do {
+                _ = try await Task.detached { try AppStoreCLI.json(["auth", "revoke"]) }.value
+                active = nil; selectedEmail = ""; apps = []; snapshotDate = nil
+                loaded = 0; expected = 0; authState = "idle"; working = false
+                status = "Вы вышли из аккаунта. Скачанные IPA и сохранённая история остались на Mac."
+            } catch {
+                working = false; self.error = "Не удалось выйти из аккаунта: " + error.localizedDescription
+            }
+        }
+    }
     func login(email: String, password: String) {
         guard !working else { return }
         guard !email.isEmpty, !password.isEmpty, !email.contains(where: { "\r\n\0".contains($0) }), !password.contains(where: { "\r\n\0".contains($0) }), email.utf8.count < 4096, password.utf8.count < 4096 else { error = "Проверьте формат логина и пароля"; return }
@@ -276,6 +290,9 @@ struct AccountCatalogView: View {
                     ForEach(model.accounts) { Text($0.email).tag($0.email) }
                 }.frame(maxWidth: 480).disabled(model.working)
                 Button(model.selectedIsActive ? "Другой аккаунт…" : "Войти в этот аккаунт…") { loginEmail = model.selectedIsActive ? "" : model.selectedEmail; loginShown = true }.disabled(blocked)
+                Button("Выйти", systemImage: "rectangle.portrait.and.arrow.right") { selected.removeAll(); model.logout() }
+                    .disabled(blocked || model.active == nil)
+                    .help("Выйти из текущего аккаунта ipatool. IPA и сохранённая история останутся на Mac.")
                 Button("Обновить") { if model.selectedIsActive { model.refreshPurchases() } else { model.refreshCurrent(loadPurchases: true) } }.disabled(blocked)
             }
             HStack {
