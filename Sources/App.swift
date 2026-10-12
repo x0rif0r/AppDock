@@ -380,11 +380,11 @@ import UniformTypeIdentifiers
             showHistory(phone.id)
         } catch { errorMessage = error.localizedDescription }
     }
-    func chooseDeviceImage(_ id: String) {
+    func chooseDeviceImage(_ id: String, lockScreen: Bool = false) {
         let panel = NSOpenPanel(); panel.allowedContentTypes = [.png, .jpeg, .heic, .tiff]
-        panel.message = "Выберите снимок экрана или картинку для узнаваемой карточки iPhone"
+        panel.message = lockScreen ? "Выберите настоящий снимок экрана блокировки iPhone с часами и виджетами. Сделайте его на iPhone и передайте на Mac через AirDrop." : "Выберите снимок экрана или картинку для узнаваемой карточки iPhone"
         guard panel.runModal() == .OK, let file = panel.url else { return }
-        do { try storeDeviceImage(file, id: id, kind: "Выбранная картинка") }
+        do { try storeDeviceImage(file, id: id, kind: lockScreen ? "Экран блокировки · импорт" : "Выбранная картинка") }
         catch { errorMessage = error.localizedDescription }
     }
     func storeDeviceImage(_ file: URL, id: String, kind: String) throws {

@@ -3,6 +3,7 @@ import AppKit
 
 struct PhonePreview: View {
     let device: RememberedDevice?
+    var isScreenshot: Bool { device?.imageKind?.contains("Снимок") == true || device?.imageKind?.contains("Экран блокировки") == true }
     var body: some View {
         VStack(spacing: 6) {
             ZStack(alignment: .top) {
@@ -10,13 +11,14 @@ struct PhonePreview: View {
                     .overlay(RoundedRectangle(cornerRadius: 25).stroke(Color.gray.opacity(0.65), lineWidth: 2))
                 Group {
                     if let path = device?.imagePath, let image = NSImage(contentsOfFile: path) {
-                        Image(nsImage: image).resizable().scaledToFill()
+                        if isScreenshot { Image(nsImage: image).resizable().scaledToFit() }
+                        else { Image(nsImage: image).resizable().scaledToFill() }
                     } else {
                         LinearGradient(colors: [.indigo, .purple, .blue.opacity(0.7)], startPoint: .topTrailing, endPoint: .bottomLeading)
                             .overlay(Image(systemName: "iphone").font(.system(size: 38, weight: .ultraLight)).foregroundStyle(.white.opacity(0.65)))
                     }
                 }.frame(width: 98, height: 204).clipShape(RoundedRectangle(cornerRadius: 20)).padding(.top, 7)
-                Capsule().fill(Color.black).frame(width: 36, height: 11).padding(.top, 13)
+                if !isScreenshot { Capsule().fill(Color.black).frame(width: 36, height: 11).padding(.top, 13) }
             }
             Text(device?.imageKind ?? "Иллюстрация · не обои устройства").font(.caption2).foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -29,6 +31,8 @@ struct DeviceHistoryView: View {
     @State private var page = "Приложения"
     @State private var search = ""
     @State private var forgetShown = false
+    @State private var overview = true
+    @State private var hoveredDeviceID: String?
     var device: RememberedDevice? { shelf.book.devices.first { $0.id == shelf.historyDeviceID } }
     var connected: Bool { shelf.phones.contains { $0.id == shelf.historyDeviceID } }
     var events: [InstallationEvent] { shelf.book.events.filter { $0.deviceID == shelf.historyDeviceID }.sorted { $0.date > $1.date } }
@@ -37,15 +41,73 @@ struct DeviceHistoryView: View {
             (device?.appNames[$0] ?? $0).localizedStandardCompare(device?.appNames[$1] ?? $1) == .orderedAscending
         }
     }
+    func openDevice(_ record: RememberedDevice, saving: Bool = false) {
+        shelf.historyDeviceID = record.id
+        page = saving ? "Сохранить" : "Приложения"
+        search = ""
+        overview = false
+    }
+    func deviceCard(_ record: RememberedDevice) -> some View {
+        let plugged = shelf.phones.contains { $0.id == record.id }
+        return VStack(spacing: 14) {
+            Button { openDevice(record) } label: {
+                VStack(spacing: 16) {
+                    PhonePreview(device: record).scaleEffect(1.13).frame(height: 282)
+                        .shadow(color: .black.opacity(0.25), radius: 12, x: 0, y: 8)
+                    Text(record.phone.name).font(.title3.bold()).lineLimit(1)
+                    Text(record.phone.displayModel + " · iOS " + record.phone.ios).font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
+                    Label(plugged ? "Подключён по USB" : "Сохранённое устройство", systemImage: plugged ? "cable.connector" : "clock")
+                        .font(.caption).foregroundStyle(plugged ? Color.green : Color.secondary)
+                    Text("\(record.versions.count) приложений").font(.caption).foregroundStyle(.secondary)
+                }.frame(maxWidth: .infinity).contentShape(Rectangle())
+            }.buttonStyle(.plain)
+            HStack(spacing: 10) {
+                Button("Сохранить приложения") { openDevice(record, saving: true) }.buttonStyle(.borderedProminent).controlSize(.small)
+                Menu {
+                    Button("Открыть устройство") { openDevice(record) }
+                    Menu("Экран блокировки") {
+                        Button("Импортировать снимок…") { shelf.chooseDeviceImage(record.id, lockScreen: true) }.disabled(shelf.busy)
+                        Button("Получить текущий экран по USB") { shelf.captureDeviceImage(record.id) }.disabled(!plugged || shelf.busy)
+                    }
+                    Button("Выбрать картинку…") { shelf.chooseDeviceImage(record.id) }.disabled(shelf.busy)
+                    Button("Обои по USB") { shelf.captureDeviceWallpaper(record.id) }.disabled(!plugged || shelf.busy)
+                    Divider()
+                    Button("Забыть устройство…", role: .destructive) { shelf.historyDeviceID = record.id; forgetShown = true }
+                        .disabled(shelf.busy || shelf.refreshing || !shelf.pendingTasks.isEmpty)
+                } label: { Image(systemName: "ellipsis") }.menuStyle(.borderlessButton).frame(width: 22)
+            }
+        }.padding(22)
+            .frame(maxWidth: .infinity)
+            .background(Color(nsColor: .controlBackgroundColor).opacity(hoveredDeviceID == record.id ? 1 : 0.65), in: RoundedRectangle(cornerRadius: 24))
+            .overlay(RoundedRectangle(cornerRadius: 24).stroke(plugged ? Color.accentColor.opacity(0.4) : Color.secondary.opacity(0.12), lineWidth: 1))
+            .onHover { hoveredDeviceID = $0 ? record.id : nil }
+            .animation(.easeOut(duration: 0.15), value: hoveredDeviceID)
+    }
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Label("Устройства и история", systemImage: "iphone.gen3").font(.title2.bold())
+                if !overview { Button { overview = true } label: { Image(systemName: "chevron.left") }.buttonStyle(.plain).help("Все устройства") }
+                Label(overview ? "Ваши устройства" : "Устройства и история", systemImage: "iphone.gen3").font(.title2.bold())
+                if overview { Text("\(shelf.book.devices.count)").font(.caption.bold()).padding(.horizontal, 9).padding(.vertical, 4).background(.quaternary, in: Capsule()) }
                 Spacer()
                 Button("Импорт отчёта iMazing…") { shelf.importDeviceReport() }.disabled(shelf.busy)
                 Button("Готово") { dismiss() }.keyboardShortcut(.cancelAction)
             }.padding(22)
             Divider()
+            if overview {
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 260, maximum: 320), spacing: 24)], spacing: 24) {
+                        ForEach(shelf.book.devices.sorted { a, b in
+                            let first = shelf.phones.contains { $0.id == a.id }
+                            let second = shelf.phones.contains { $0.id == b.id }
+                            return first != second ? first : a.phone.name.localizedStandardCompare(b.phone.name) == .orderedAscending
+                        }) { record in
+                            deviceCard(record)
+                        }
+                    }.padding(28)
+                    if shelf.book.devices.isEmpty { ContentUnavailableView("Подключите первый iPhone", systemImage: "cable.connector", description: Text("Разблокируйте устройство и подтвердите доверие. Его карточка появится после сканирования.")) }
+                }.background(Color(nsColor: .underPageBackgroundColor))
+            } else {
             HStack(spacing: 0) {
                 List(selection: $shelf.historyDeviceID) {
                     ForEach(shelf.book.devices.sorted { $0.phone.name < $1.phone.name }) { record in
@@ -63,7 +125,7 @@ struct DeviceHistoryView: View {
                             HStack(alignment: .top, spacing: 22) {
                                 VStack(spacing: 10) {
                                     PhonePreview(device: device)
-                                    Button("Выбрать картинку…") { shelf.chooseDeviceImage(device.id) }.disabled(shelf.busy)
+                                    Button("Импорт экрана блокировки…") { shelf.chooseDeviceImage(device.id, lockScreen: true) }.disabled(shelf.busy)
                                     Button("Снимок по USB") { shelf.captureDeviceImage(device.id) }.disabled(!connected || shelf.busy)
                                 }.frame(width: 185)
                                 VStack(alignment: .leading, spacing: 9) {
@@ -118,7 +180,8 @@ struct DeviceHistoryView: View {
                     ContentUnavailableView("Выберите устройство", systemImage: "iphone", description: Text("Подключите iPhone или импортируйте текстовый отчёт iMazing.")).frame(maxWidth: .infinity)
                 }
             }
-        }.frame(width: 960, height: 720)
+            }
+        }.frame(width: 1040, height: 760)
             .confirmationDialog("Забыть выбранное устройство?", isPresented: $forgetShown, titleVisibility: .visible) {
                 Button("Удалить карточку и историю", role: .destructive) { if let device { shelf.forgetDevice(device.id) } }
             } message: { Text("Сохранённая карточка и история установок будут удалены из AppDock. Приложения на iPhone и IPA в библиотеке останутся. Подключённое устройство снова появится после сканирования.") }
