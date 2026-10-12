@@ -134,3 +134,7 @@ python3 -m unittest discover -s Tests -v
 © 2026 **x0rif0r**. Собственный код — [MIT](LICENSE).
 
 Внешние проекты: [ipatool](https://github.com/majd/ipatool), [libimobiledevice](https://github.com/libimobiledevice/libimobiledevice), [ideviceinstaller](https://github.com/libimobiledevice/ideviceinstaller), [DeviceKit](https://github.com/devicekit/DeviceKit). Назначение и лицензии описаны в [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), полные тексты — в [Licenses](Licenses). Лицензия AppDock не распространяется на чужие приложения и лицензии Apple ID.
+
+## Справочник и сообщество
+
+[Таблица приложений](catalog/README.md) содержит известные ID и источники, включая альтернативные названия. Это кандидаты для проверки, а не подтверждение владения или доступности. [Предложить приложение](https://github.com/x0rif0r/AppDock/issues/new?template=app.yml) можно через форму заявки или Pull Request; правила — в [CONTRIBUTING.md](CONTRIBUTING.md). Автоматическая интеграция справочника в интерфейс пока не реализована.

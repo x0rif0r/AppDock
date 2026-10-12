@@ -1,0 +1,35 @@
+name: Добавить или исправить приложение
+description: Предложить запись в справочник удалённых и альтернативных приложений
+title: "[Справочник] "
+body:
+  - type: markdown
+    attributes:
+      value: "Не прикладывайте IPA, Apple ID, пароли, токены или личные логи. Заявка будет проверена перед добавлением."
+  - type: input
+    id: name
+    attributes:
+      label: Название и банк или сервис
+    validations:
+      required: true
+  - type: input
+    id: app_id
+    attributes:
+      label: App Store ID
+      description: Точное число из исторической ссылки App Store
+    validations:
+      required: true
+  - type: input
+    id: bundle
+    attributes:
+      label: Bundle ID, если известен
+  - type: textarea
+    id: sources
+    attributes:
+      label: Источники и подтверждение официальной связи
+      description: Ссылки на сообщение банка, архив официального сайта и страницу App Store
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Альтернативные названия, даты и примечания
